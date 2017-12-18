@@ -84,7 +84,7 @@ boolean isUnique(char[] input) {
 }
 ```
 | category | complexity |
-|----------|-----|
+|----------|:-----:|
 |space |O(1)|
 |time |O(n)|
 </details>
@@ -107,12 +107,11 @@ boolean isUnique(char[] input) {
 }
 ```
 | category | complexity |
-|----------|-----|
+|----------|:-----:|
 |space |O(1)|
 |time |O(n)|
 </details>
-
-
+<br/>
 1.3 문자열 두개를 입력 받아, 그중 하나가 다른 하나의 순열인지 판별하는 메서드를 작성하라.
 <details>
   <summary>확실히 할 것</summary>
@@ -141,7 +140,7 @@ boolean isPermutation(char[] s1, char[] s2) {
 }
 ```
 | category | complexity |
-|----------|-----|
+|----------|:-----:|
 |space |O(1)|
 |time |O(n)|
 </details>
