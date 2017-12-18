@@ -112,6 +112,7 @@ boolean isUnique(char[] input) {
 |time |O(n)|
 </details>
 <br/>
+
 *1.3 문자열 두개를 입력 받아, 그중 하나가 다른 하나의 순열인지 판별하는 메서드를 작성하라.*
 <details>
   <summary>확실히 할 것</summary>
