@@ -61,13 +61,13 @@ public String joinWords(String[] words) {
 ## Problems
 *1.1 문자열에 포함된 문자들이 전부 유일한지 검사하는 알고리즘을 구현하라.*
 <details>
-  <summary>확실히 할 것</summary>
+  <summary>Suggest Constraints</summary>
   
-  > 인풋의 제약조건은?
+  > 인풋의 제약조건은 영소문자이다.
 </details>
 <details>
  <summary>Solution1</summary>
-인풋은 영소문자로 가정하고, 26개 characters의 출현 여부를 담은 배열을 이용한다.
+26개 characters의 출현 여부를 담은 배열을 이용한다.
   
 ```java
 boolean isUnique(char[] input) {
@@ -115,13 +115,13 @@ boolean isUnique(char[] input) {
 
 *1.3 문자열 두개를 입력 받아, 그중 하나가 다른 하나의 순열인지 판별하는 메서드를 작성하라.*
 <details>
-  <summary>확실히 할 것</summary>
+  <summary>Suggest Constraints</summary>
   
-  > 인풋의 제약조건은?
+  > 인풋의 제약조건은 영소문자이다.
 </details>
 <details>
  <summary>Solution1</summary>
-  인풋은 영소문자로 가정하고, 26개 characters의 출현 갯수를 담은 배열을 이용한다.
+  26개 characters의 출현 갯수를 담은 배열을 이용한다.
   두 인풋의 길이가 같을 경우, 한 문자의 갯수가 많으면 반드시 다른 한 문자의 갯수가 적다는 논리를 이용한다.
 
 ```java
@@ -145,3 +145,39 @@ boolean isPermutation(char[] s1, char[] s2) {
 |space |O(1)|
 |time |O(n)|
 </details>
+<br/>
+
+*1.4 주어진 문자열 내의 모든 공백을 '%20'으로 바꾸는 메서드를 작성하라.
+<details>
+  <summary>Suggest Constraints</summary>
+  
+  > 문자열 끝에 추가로 필요한 문자들을 더할 수 있는 충분한 공간이 있다고 가정한다.
+  > 공백을 포함한 문자열의 길이도 인자로 주어진다고 가정한다.
+</details>
+<details>
+  <summary>Solution 1</summary>
+  
+ ```java
+String replaceBlank(char[] str, int length) {
+  StringBuffer sb = new StringBuffer();
+  for(char c : str) {
+    String newVal = ' '.equals?(c) ? "%20" : String.valueOf(c);
+    sb.append(newVal);
+  }
+  return sb.toString();
+}
+```
+| category | complexity |
+|----------|:-----:|
+|space |O(n)|
+|time |O(n)|
+</details>
+<details>
+  <summary>Solution 2(on working)</summary>
+  추가적인 자료구조를 사용하지 않고 풀어보자.
+
+```java
+String replaceBlank(char[] str, int length) {
+  return str;
+}
+```
