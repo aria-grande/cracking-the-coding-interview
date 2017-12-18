@@ -5,5 +5,5 @@ It refers a book '[Cracking the coding interview](http://www.crackingthecodingin
 It summarizes the strategies, solve problems and write some descriptions about it.
 
 ## Table of Contents
-### Data Structure
-- Array and Strings
+### [Data Structure](./data-structure/README.md)
+- [Arrays and Strings](./data-structure/arrays-and-strings.md)
