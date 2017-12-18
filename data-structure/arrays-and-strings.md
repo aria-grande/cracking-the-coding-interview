@@ -63,7 +63,7 @@ public String joinWords(String[] words) {
 <details>
   <summary>Suggest Constraints</summary>
   
-  > 인풋의 제약조건은 영소문자이다.
+> 인풋의 제약조건은 영소문자이다.
 </details>
 <details>
  <summary>Solution1</summary>
@@ -117,7 +117,7 @@ boolean isUnique(char[] input) {
 <details>
   <summary>Suggest Constraints</summary>
   
-  > 인풋의 제약조건은 영소문자이다.
+> 인풋의 제약조건은 영소문자이다.
 </details>
 <details>
  <summary>Solution1</summary>
@@ -149,10 +149,10 @@ boolean isPermutation(char[] s1, char[] s2) {
 
 *1.4 주어진 문자열 내의 모든 공백을 '%20'으로 바꾸는 메서드를 작성하라.*
 <details>
-  <summary>Suggest Constraints</summary>
+  <summary>Suggest Constraints</summary> 
   
-  > 문자열 끝에 추가로 필요한 문자들을 더할 수 있는 충분한 공간이 있다고 가정한다.
-  > 공백을 포함한 문자열의 길이도 인자로 주어진다고 가정한다.
+> 문자열 끝에 추가로 필요한 문자들을 더할 수 있는 충분한 공간이 있다고 가정한다.<br/>
+> 공백을 포함한 문자열의 길이도 인자로 주어진다고 가정한다.
 </details>
 <details>
   <summary>Solution 1</summary>
