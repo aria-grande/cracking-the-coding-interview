@@ -56,3 +56,50 @@ public String joinWords(String[] words) {
   return sentence.toString();
 }
 ```
+
+---------------------------
+## Problems
+1.1 문자열에 포함된 문자들이 전부 유일한지 검사하는 알고리즘을 구현하라.
+<details>
+  <summary>확실히 할 것</summary>
+  
+  > 인풋의 제약조건은? 영 소문자로 가정.
+</details>
+<details>
+ <summary>Solution1</summary>
+영소문자(26개의 characters)의 출현 여부를 담은 배열을 이용한다.
+  
+```java
+boolean isUnique(char[] input) {
+  if (input.length > 26) { return false; }
+  boolean[] chars = new boolean[26];
+  for(char c : input) {
+    int index = c - 'a';
+    if(chars[index]) {
+      return false;
+    }
+    chars[index] = true;
+  }
+  return true;
+}
+```
+</details>
+<details>
+ <summary>Solution2</summary>
+비트연산을 이용한다.
+  
+```java
+boolean isUnique(char[] input) {
+  if (input.length > 26) { return false; }
+  int checker = 0;
+  for(char c : input) {
+    int val = c - 'a';
+    if ((checker & (1 << val)) > 0) {
+      return false;
+    }
+    checker |= (1 << val);
+  }
+  return true;
+}
+```
+</details>
