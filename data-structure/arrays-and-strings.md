@@ -59,7 +59,7 @@ public String joinWords(String[] words) {
 
 ---------------------------
 ## Problems
-1.1 문자열에 포함된 문자들이 전부 유일한지 검사하는 알고리즘을 구현하라.
+*1.1 문자열에 포함된 문자들이 전부 유일한지 검사하는 알고리즘을 구현하라.*
 <details>
   <summary>확실히 할 것</summary>
   
@@ -112,7 +112,7 @@ boolean isUnique(char[] input) {
 |time |O(n)|
 </details>
 <br/>
-1.3 문자열 두개를 입력 받아, 그중 하나가 다른 하나의 순열인지 판별하는 메서드를 작성하라.
+*1.3 문자열 두개를 입력 받아, 그중 하나가 다른 하나의 순열인지 판별하는 메서드를 작성하라.*
 <details>
   <summary>확실히 할 것</summary>
   
