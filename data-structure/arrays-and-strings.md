@@ -67,7 +67,7 @@ public String joinWords(String[] words) {
 </details>
 <details>
  <summary>Solution1</summary>
-영소문자(26개의 characters)의 출현 여부를 담은 배열을 이용한다.
+인풋은 영소문자로 가정하고, 26개 characters의 출현 여부를 담은 배열을 이용한다.
   
 ```java
 boolean isUnique(char[] input) {
@@ -83,6 +83,10 @@ boolean isUnique(char[] input) {
   return true;
 }
 ```
+| category | complexity |
+|----------|-----|
+|space |O(1)|
+|time |O(n)|
 </details>
 <details>
  <summary>Solution2</summary>
@@ -102,4 +106,42 @@ boolean isUnique(char[] input) {
   return true;
 }
 ```
+| category | complexity |
+|----------|-----|
+|space |O(1)|
+|time |O(n)|
+</details>
+
+
+1.3 문자열 두개를 입력 받아, 그중 하나가 다른 하나의 순열인지 판별하는 메서드를 작성하라.
+<details>
+  <summary>확실히 할 것</summary>
+  
+  > 인풋의 제약조건은?
+</details>
+<details>
+ <summary>Solution1</summary>
+  인풋은 영소문자로 가정하고, 26개 characters의 출현 갯수를 담은 배열을 이용한다.
+  두 인풋의 길이가 같을 경우, 한 문자의 갯수가 많으면 반드시 다른 한 문자의 갯수가 적다는 논리를 이용한다.
+
+```java
+boolean isPermutation(char[] s1, char[] s2) {
+  if (s1.legnth != s2.length) { return false; }
+  int[] chars = new int[26];
+  for(char c1 : s1) {
+    chars[c1-'a'] += 1;
+  }
+  for(char c2 : s2) {
+    char[c2-'a'] -= 1;
+    if (char[c2-'a'] < 0) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+| category | complexity |
+|----------|-----|
+|space |O(1)|
+|time |O(n)|
 </details>
