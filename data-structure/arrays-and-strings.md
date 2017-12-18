@@ -63,7 +63,7 @@ public String joinWords(String[] words) {
 <details>
   <summary>확실히 할 것</summary>
   
-  > 인풋의 제약조건은? 영 소문자로 가정.
+  > 인풋의 제약조건은?
 </details>
 <details>
  <summary>Solution1</summary>
