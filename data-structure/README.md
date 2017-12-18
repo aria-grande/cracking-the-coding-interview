@@ -1,3 +1,3 @@
 # Data Structure
 
-- [Arrays and Strings](./arrays-and-strings.md)]
+- [Arrays and Strings](./arrays-and-strings.md)
