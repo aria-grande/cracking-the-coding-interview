@@ -147,7 +147,7 @@ boolean isPermutation(char[] s1, char[] s2) {
 </details>
 <br/>
 
-*1.4 주어진 문자열 내의 모든 공백을 '%20'으로 바꾸는 메서드를 작성하라.
+*1.4 주어진 문자열 내의 모든 공백을 '%20'으로 바꾸는 메서드를 작성하라.*
 <details>
   <summary>Suggest Constraints</summary>
   
