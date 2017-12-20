@@ -175,13 +175,12 @@ String replaceBlank(char[] str, int length) {
 <details>
   <summary>Solution 2</summary>
   추가적인 자료구조를 사용하지 않고 풀어보자.
-  1. 치환해야 할 공백 갯수를 구한다.
-  2. 마지막 치환 공백을 만나면 치환을 시작하자.
   
 ```java
 String replaceBlank(char[] str, int length) {
   int blankCnt = 0;
   int ep = -1;
+  // 1. 치환해야 할 공백 갯수를 구한다.
   for(int i = 0; i < length; ++i) {
     char c = str[i];
     if(' ' == c) {
@@ -192,6 +191,7 @@ String replaceBlank(char[] str, int length) {
       ++blankCnt;
     }
   }
+  // 2. 마지막 치환 공백을 만나면 치환을 시작하자.
   for(int j = ep; j >= 0; --j) {
     char c = str[j];
     if(' ' == c) {
