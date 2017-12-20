@@ -173,11 +173,42 @@ String replaceBlank(char[] str, int length) {
 |time |O(n)|
 </details>
 <details>
-  <summary>Solution 2(on working)</summary>
+  <summary>Solution 2</summary>
   추가적인 자료구조를 사용하지 않고 풀어보자.
-
+  1. 치환해야 할 공백 갯수를 구한다.
+  2. 마지막 치환 공백을 만나면 치환을 시작하자.
+  
 ```java
 String replaceBlank(char[] str, int length) {
-  return str;
+  int blankCnt = 0;
+  int ep = -1;
+  for(int i = 0; i < length; ++i) {
+    char c = str[i];
+    if(' ' == c) {
+      if(2 * blankCnt == length - i) {
+        ep = i - 1;
+        break;
+      }
+      ++blankCnt;
+    }
+  }
+  for(int j = ep; j >= 0; --j) {
+    char c = str[j];
+    if(' ' == c) {
+      --blankCnt;
+      int point = j + 2 * blankCnt;
+      str[point+2] = '%';
+      str[point+1] = '0';
+      str[point]   = '2';
+    }
+    else {
+      str[j + 2 * blankCnt] = str[j];
+    }
+  }
+  return String.valueOf(str);
 }
 ```
+| category | complexity |
+|----------|:-----:|
+|space |O(1)|
+|time |O(n)|
