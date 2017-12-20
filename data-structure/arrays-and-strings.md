@@ -193,8 +193,7 @@ String replaceBlank(char[] str, int length) {
   }
   // 2. 마지막 치환 공백을 만나면 치환을 시작하자.
   for(int j = ep; j >= 0; --j) {
-    char c = str[j];
-    if(' ' == c) {
+    if(' ' == str[j]) {
       --blankCnt;
       int point = j + 2 * blankCnt;
       str[point+2] = '%';
