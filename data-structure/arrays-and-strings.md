@@ -210,3 +210,41 @@ String replaceBlank(char[] str, int length) {
 |----------|:-----:|
 |space |O(1)|
 |time |O(n)|
+</details>
+<br/>
+
+### 1.5 같은 문자가 연속으로 반복될 경우, 그 횟수를 사용해 문자열을 압축하는 메서드를 구현하라. 가령 압축해야 할 문자열이 aabccccaaa라면, a5b1c4와 같이 압축되어야 한다. 압축 결과로 만들어지는 문자열이 원래 문자열보다 길이가 길 경우, 이 메서드는 원래 문자열을 반환해야 한다.
+<details>
+  <summary>Suggest Constraints</summary> 
+  
+> 문자열의 구성은 영소문자로 가정한다.
+</details>
+<details>
+  <summary>Solution 1</summary>
+  
+ ```java
+String compress(char[] str) {
+  StringBuffer sb = new StringBuffer();
+  int[] chars = new int[26];
+  for(char c : str) {
+    chars[c-'a'] += 1;
+  }
+  
+  int alphabetCnt = 0;
+  for(int i = 0; i < 26; ++i) {
+    char alphabet = (char)('a'+i);
+    int count = chars[i];
+    if (count > 0) {
+      ++alphabetCnt;
+      sb.append(alphabet);
+      sb.append(count);
+    }
+  }
+  return alphabetCnt * 2 > str.length ? String.valueOf(str) : sb.toString();
+}
+```
+| category | complexity |
+|----------|:-----:|
+|space |O(n)|
+|time |O(n)|
+</details>
