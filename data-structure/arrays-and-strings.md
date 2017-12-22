@@ -248,3 +248,43 @@ String compress(char[] str) {
 |space |O(n)|
 |time |O(n)|
 </details>
+
+### 1.6 이미지를 표현하는 NxN 행렬이 있다. 이미지의 각 픽셀은 4바이트로 표현된다. 이때, 이미지를 90도 회전시키는 메서드를 작성하라. 부가적인 행렬을 사용하지 않고서도 할 수 있겠는가?
+<details>
+  <summary>Suggest Constraints</summary> 
+  
+> 4바이트이므로, int[][]를 인풋으로 취급한다.
+</details>
+<details>
+  <summary>Solution 1</summary>
+  
+  이미지의 각 픽셀이 4바이트라는 것은, 하나의 셀을 int type으로 표현 가능 하다는 것으로 해석할 수 있다. 
+  행렬의 outer layer 부터 회전 시키면 부가적인 행렬을 사용하지 않아도 된다.
+  d를 depth라고 할 때, 0 <= d <= n/2 이며, img[d][0]~img[d][n/2]를 회전시키면 된다.
+  ex)
+  [ 1, 2, 3 ]    [ 7, 4, 1 ]
+  [ 4, 5 ,6 ] => [ 8, 5, 2 ]
+  [ 7, 8, 9 ]    [ 9, 6, 3 ]
+  1. img[0][0] -> img[0][2] -> img[2][2] -> img[2][0]
+  2. img[0][1] -> img[1][2] -> img[2][1] -> img[1][0]
+  
+ ```java
+int[][] rotate(int[][] img) {
+  final int N = img.length;
+  for(int d = 0; d < N/2; ++d) {  // d means depth
+    for(int i = d; i < N-d-1; ++i) {
+      int tmp = img[d][i];
+      img[d][i] = img[N-i-1][d];          // left -> top
+      img[N-i-1][d] = img[N-d-1][N-i-1];  // bottom -> left
+      img[N-d-1][N-i-1] = img[i][N-d-1];  // right -> bottom
+      img[i][N-d-1] = tmp;                // top -> right
+    }
+  }
+  return img;
+}
+```
+| category | complexity |
+|----------|:-----:|
+|space |O(1)|
+|time |O(n^2)|
+</details>
