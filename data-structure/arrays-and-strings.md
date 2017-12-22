@@ -334,3 +334,37 @@ int[][] bomb(int[][] matrix, final int M, final int N) {
 |space |O(M+N) (for HashSet)|
 |time |O(n^2)|
 </details>
+
+<details>
+  <summary>Solution 2</summary>
+  
+Solution 1의 경우, rowIndices.forEach에 의해 0으로 바뀐 원소라 해도, colIndices.forEach를 실행하면서 다시 한번 바뀔 수 있다. 조금 더 반복을 줄여볼 수는 없을까?
+
+ ```java
+int[][] bomb(int[][] matrix, final int M, final int N) {
+  boolean[] rows = new boolean[M];
+  boolean[] cols = new boolean[N];
+  for(int i = 0; i < M; ++i) {
+    for(int j = 0; j < N; ++j) {
+      if (matrix[i][j] == 0) {
+        rows[i] = true;
+        cols[j] = true;
+      }
+    }
+  }
+  
+  for(int i2 = 0; i2 < M; ++i2) {
+    for(int j2 = 0; j2 < N; ++j2) {
+      if (rows[i2] || cols[i2]) {
+        matrix[i2][j2] = 0;
+      }
+    }
+  }
+  return matrix;
+}
+```
+| category | complexity |
+|----------|:-----:|
+|space |O(M+N)|
+|time |O(n^2)|
+</details>
