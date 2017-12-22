@@ -291,3 +291,46 @@ int[][] rotate(int[][] img) {
 |space |O(1)|
 |time |O(n^2)|
 </details>
+
+### 1.7 MxN 행렬의 한 원소가 0일 경우, 해당 원소가 속한 행과 열의 모든 원소를 0으로 설정하는 알고리즘을 작성하라.
+<details>
+  <summary>Suggest Constraints</summary> 
+  
+> 행렬을 구성하는 것은 정수로 한정한다.
+</details>
+<details>
+  <summary>Solution 1</summary>
+  
+  행렬을 순차적으로 순회하며 0이 발견되는 경우, 해당 열과 행의 index를 저장해둔다.
+  index를 담고있는 배열을 순회하며 행/열을 0으로 만든다.
+ 
+ ```java
+int[][] bomb(int[][] matrix, final int M, final int N) {
+  Set<Integer> rowIndices = new HashSet<Integer>();
+  Set<Integer> colIndices = new HashSet<Integer>();
+  for(int i = 0; i < M; ++i) {
+    for(int j = 0; j < N; ++j) {
+      if (matrix[i][j] == 0) {
+        rowIndices.add(i);
+        colIndices.add(j);
+      }
+    }
+  }
+  rowIndices.forEach(r -> {
+    for(int k = 0; k < N; ++k) {
+      matrix[r][k] = 0;
+    }
+  });
+  colIndices.forEach(c -> {
+    for(int l = 0; l < M; ++l) {
+      matrix[l][c] = 0;
+    }
+  });
+  return matrix;
+}
+```
+| category | complexity |
+|----------|:-----:|
+|space |O(M+N) (for HashSet)|
+|time |O(n^2)|
+</details>
