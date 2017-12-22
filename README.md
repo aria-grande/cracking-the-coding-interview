@@ -7,3 +7,4 @@ It summarizes the strategies, solve problems and write some descriptions about i
 ## Table of Contents
 ### [Data Structure](./data-structure/README.md)
 - [Arrays and Strings](./data-structure/arrays-and-strings.md)
+- [Linked Lists](./data-structure/linked-lists.md)
