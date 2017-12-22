@@ -368,3 +368,27 @@ int[][] bomb(int[][] matrix, final int M, final int N) {
 |space |O(M+N)|
 |time |O(n^2)|
 </details>
+
+### 1.8 한 단어가 다른 단어에 포함된 문자열인지 판별하는 isSubstring이라는 메서드가 있다고 가정하자. s1과 s2의 두 문자열이 주어졌을 때, s2가 s1을 회전시킨 결과인지 판별하는 코드를 isSubstring을 한 번만 호출하여 작성하라.(가령 'watterbottle'은 'erbottlewat'을 회전시켜 얻을 수 있는 문자열이다.) :thumbsup:
+
+<details>
+  <summary>Suggest Constraints</summary> 
+  
+> `isSubstring(str1, str2)` 는 `str1`이 `str2`의 substring인지 반환하는 메서드로 정의한다.
+</details>
+<details>
+  <summary>Solution 1</summary>
+  회전 시킨 문자열을 두번 붙이면, 그 중 원 문자열이 있을 것이다.<br/>
+  
+  예를 들어보면, ` "erbottlewat"+"erbottlewat" = "er(bottlewater)bottlewat" // contains "bottlewater" `
+
+```java
+boolean isRotated(String s1, String s2) {
+  return (s1.length() == s2.length()) ? isSubstring(s2+s2, s1) : false;
+}
+```
+| category | complexity |
+|----------|:-----:|
+|space |O(1)|
+|time |O(n) (n은 문자열 s1의 길이라고 할 때)|
+</details>
