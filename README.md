@@ -1,6 +1,6 @@
 # Introduction
 
-:white_check_mark: This project is a sub-project of TIS :black_nib:Today I Solve:black_nib:<br/>
+:white_check_mark: This project is a sub-project of TIS :pencil:_Today I Solve_:pencil:<br/>
 :white_check_mark: It has a purpose to get strategies of problem solving skills.
 
 # Cracking the coding interview :page_with_curl:
