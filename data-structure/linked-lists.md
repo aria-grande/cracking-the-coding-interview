@@ -56,3 +56,76 @@ Node delete(Node head, int d) {
 
 
 연결리스트에 관한 질문을 받을 때에는, 단방향인지 양방향인지 확실히 해두어야 한다.
+
+
+## Problems
+
+### 2.1 unsorted linked list에서 중복 문자를 제거하는 메서드를 작성하라
+
+<details>
+  <summary>Suggest Constraints</summary> 
+  
+> 구성 문자는 영소문자로 가정한다.
+> 단방향 연결 리스트로 가정한다.
+> 중복이 있다면 최초에 출현한 문자를 제외하고 나머지를 지우는 것으로 가정한다.
+</details>
+<details>
+  <summary>Solution 1</summary>
+  해당 영소문자의 출현 여부를 담고 있는 임시 버퍼를 사용하여 해결한다.
+ 
+ ```java
+ Node unique(Node head) {
+   if (head == null) { return; }
+   boolean[] chars = new boolean[26];
+   Node n = head;
+   chars[n.data-'a'] = true;
+   while(n.next != null) {
+     int idx = n.next.data - 'a';
+     if(chars[idx]) {
+        n.next = n.next.next;
+     }
+     else {
+        chars[idx] = true;
+        n = n.next;
+     }
+   }
+   return head;
+ }
+ ```
+| category | complexity |
+|----------|:-----:|
+|space |O(1)|
+|time |O(n)|
+</details>
+
+<details>
+  <summary>Solution 2</summary>
+  임시 버퍼를 사용하지 않고 해결해보자.
+    
+ ```java
+Node unique(Node head) {
+    if (head == null) { return; }
+    Node n = head;
+    while(n.next != null) {
+        Node runner = n;
+        while(runner.next != null) {
+            if(n.data == runner.next.data) {
+                runner.next = runner.next.next;
+            }
+            else {
+                runner = runner.next;
+            }
+        }
+        n = n.next;
+    }
+    return head;
+ }
+ ```
+| category | complexity |
+|----------|:-----:|
+|space |-|
+|time |O(n^2)|
+</details>
+<br/>
+
+ 
