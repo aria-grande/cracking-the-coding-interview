@@ -65,8 +65,8 @@ Node delete(Node head, int d) {
 <details>
   <summary>Suggest Constraints</summary> 
   
-> 구성 문자는 영소문자로 가정한다.
-> 단방향 연결 리스트로 가정한다.
+> 구성 문자는 영소문자로 가정한다.<br/>
+> 단방향 연결 리스트로 가정한다.<br/>
 > 중복이 있다면 최초에 출현한 문자를 제외하고 나머지를 지우는 것으로 가정한다.
 </details>
 <details>
@@ -104,9 +104,8 @@ Node delete(Node head, int d) {
     
  ```java
 Node unique(Node head) {
-    if (head == null) { return; }
     Node n = head;
-    while(n.next != null) {
+    while(n != null) {
         Node runner = n;
         while(runner.next != null) {
             if(n.data == runner.next.data) {
