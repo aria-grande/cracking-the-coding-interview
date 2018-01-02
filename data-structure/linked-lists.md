@@ -127,4 +127,45 @@ Node unique(Node head) {
 </details>
 <br/>
 
+### 2.2 단방향 연결 리스트에서, 뒤에서 k번째 원소를 찾는 알고리즘을 구현하라.
+
+<details>
+  <summary>Suggest Constraints</summary> 
  
+>k가 1일 경우, 리스트의 마지막 값을 의미한다.
+</details>
+<details>
+  <summary>Solution 1</summary>
+   runner 기법(부가포인터 기법)을 사용한다.
+    
+ ```java
+Node findFromBehind(Node head, int k) {
+    if(k < 1) { 
+        return null; 
+    }
+    // set runner
+    Node runner = head;
+    for(int i = 0; i < k-1; ++i) {
+        if(runner == null) { 
+            return null; 
+        }
+        runner = runner.next;
+    }
+    if(runner == null) { 
+        return null; 
+    }
+    // start to find last k node
+    Node node = head;
+    while(runner.next != null) {
+        node = node.next;
+        runner = runner.next;
+    }
+    return node;
+ }
+ ```
+| category | complexity |
+|----------|:-----:|
+|space |O(1)|
+|time |O(n)|
+</details>
+<br/>
