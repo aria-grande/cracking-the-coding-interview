@@ -169,3 +169,38 @@ Node findFromBehind(Node head, int k) {
 |time |O(n)|
 </details>
 <br/>
+
+
+### 2.3 단방향 연결 리스트의 중간에 있는 노드 하나를 삭제하는 알고리즘을 구현하라. 삭제할 노드에 대해 접근만 가능하다는 것에 유의하라.
+
+<details>
+  <summary>Suggest Constraints</summary> 
+ 
+>입력: 연결리스트 a->b->c->d->e의 노드 c
+>결과: 아무것도 반환하지 않고, 결과로 연결리스트가 a->b->d->e면 된다.
+</details>
+<details>
+  <summary>Solution 1</summary>
+  삭제할 노드의 데이터를 다음 데이터로 바꿔치자.
+ 
+ ```java
+void remove(Node node) {
+    if(node == null) { 
+        return null; 
+    }
+    Node next = node.next;
+    if (next == null) {
+        node = null;
+    }
+    else {
+        node.data = next.data;
+        node.next = next.next;
+    }
+ }
+ ```
+| category | complexity |
+|----------|:-----:|
+|space |O(1)|
+|time |O(1)|
+</details>
+<br/>
