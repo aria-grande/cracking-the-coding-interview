@@ -204,3 +204,74 @@ void remove(Node node) {
 |time |O(1)|
 </details>
 <br/>
+
+
+### 2.5 연결 리스트로 표현된 두 개의 수가 있다고 하자. 리스트의 각 노드는 해당 수의 각 자릿수를 표현한다. 이때 자릿수들은 역순으로 배열되는데, 1의 자릿수가 리스트의 맨 앞에 오도록 배열된다는 뜻이다. 이 두 수를 더하여 그 합을 연결 리스트로 반환하는 함수를 작성하라.
+- 예: (7->1->6) + (5->9->2) => (2->1->9)
+
+<details>
+    <summary>Suggest Constraints</summary>
+> node의 data가 비어있는 경우는 없다고 가정한다.
+</details>
+<details>
+    <summary>Solution 1</summary>
+stack overflow가 나지 않을 정도로 input이 들어온다는 가정 하에, 재귀로 풀어본다.
+    
+```java
+static Node sum(Node n1, Node n2, Node result, int val) {
+    if (n1 != null || n2 != null) {
+        int d1 = (n1 == null) ? 0 : n1.data;
+        int d2 = (n2 == null) ? 0 : n2.data;
+        int data = d1 + d2 + val;
+        int newVal = (data >= 10) ? 1 : 0;
+        int newData = data - newVal*10;
+        // move result pointer to the end
+        Node r = result;
+        while(r.next != null) {
+            r = r.next;
+        }
+        r.next = new Node(newData, null);
+        return sum((n1 == null ? null : n1.next), (n2 == null ? null : n2.next), result, newVal);
+    }
+    return result;
+}
+
+public static void printNode(Node node) {
+    Node n = node;
+    while(n != null) {
+        System.out.print(n.data);
+        n = n.next;
+    }
+    System.out.println();
+}
+
+public static void main(String args[]) {
+    // test case 1
+    Node n3 = new Node(6, null);
+    Node n2 = new Node(1, n3);
+    Node n1 = new Node(7, n2);
+
+    Node m3 = new Node(2, null);
+    Node m2 = new Node(9, m3);
+    Node m1 = new Node(5, m2);
+
+    Node result = sum(n1, m1, new Node(0, null), 0);
+    printNode(result.next);
+    
+    // test case 2
+    Node l3 = new Node(6, null);
+    Node l2 = new Node(9, l3);
+    Node l1 = new Node(2, l2);
+
+    Node k2 = new Node(5, null);
+    Node k1 = new Node(3, k2);
+    Node result2 = sum(l1, k1, new Node(0, null), 0);
+    printNode(result2.next);
+}
+```
+
+| category | complexity |
+|----------|:-----:|
+|space |O(n)|
+|time |O(n)|
+</details>
