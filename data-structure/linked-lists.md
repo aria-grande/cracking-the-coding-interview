@@ -45,14 +45,14 @@ Node delete(Node head, int d) {
 }
 ```
 
-#### linked list vs. array
-| 비교 | linked list | array | dynamic array |
+#### [linked list vs. array](https://en.wikipedia.org/wiki/Linked_list#Linked_lists_vs._dynamic_arrays)
+| 비교 | linked list | static array | dynamic array |
 |:---:|:-----------:|:-----:|:-------------:|
 |길이|유동적|고정적|유동적|
 |index|O(n)|O(1)|O(1)|
-|insert/delete at beggining|O(1)|O(n)|O(n)<br/>(shifting)|
-|insert/delete in middle|search time + O(1)|O(1)|O(n)<br/>(shifting)|
-|insert/delete at end|O(1)|O(1)|O(1)|
+|insert/delete at beggining|O(1)|N/A|O(n)<br/>(shifting)|
+|insert/delete in middle|search time + O(1)|N/A|O(n)<br/>(shifting)|
+|insert/delete at end|search time + O(1)|N/A|O(1)|
 
 
 연결리스트에 관한 질문을 받을 때에는, 단방향인지 양방향인지 확실히 해두어야 한다.
